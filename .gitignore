@@ -21,7 +21,5 @@
 /yarn-error.log
 
 
-config/initializers/setup_mailers.rb
-
-
+/config/initializers/setup_mailer.rb
 .byebug_history
