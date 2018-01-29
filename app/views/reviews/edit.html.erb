@@ -1,0 +1,52 @@
+<h3>Edit your review</h3>
+<%= form_for @review do |f| %>
+
+<label for="review_body"> Review </label> <br/>
+  <%= f.text_area :body %> <br/>
+
+  <br/>
+
+  <label> Locality Rating </label> <br/>
+  <%= f.radio_button :locality_rating, 1 %> 1 
+  <%= f.radio_button :locality_rating, 2 %> 2 
+  <%= f.radio_button :locality_rating, 3 %> 3 
+  <%= f.radio_button :locality_rating, 4 %> 4 
+  <%= f.radio_button :locality_rating, 5 %> 5  <br/>
+   
+
+  <br/>
+  <label> Facility Rating </label> <br/>
+  <%= f.radio_button :facility_rating, 1 %> 1 
+  <%= f.radio_button :facility_rating, 2 %> 2 
+  <%= f.radio_button :facility_rating, 3 %> 3 
+  <%= f.radio_button :facility_rating, 4 %> 4 
+  <%= f.radio_button :facility_rating, 5 %> 5  <br/>
+   
+
+  <br/>
+  <label> Safety Rating </label> <br/>
+  <%= f.radio_button :safety_rating, 1 %> 1 
+  <%= f.radio_button :safety_rating, 2 %> 2 
+  <%= f.radio_button :safety_rating, 3 %> 3 
+  <%= f.radio_button :safety_rating, 4 %> 4 
+  <%= f.radio_button :safety_rating, 5 %> 5  <br/>
+   
+
+  <br/>
+  <label> Cleanliness Rating </label> <br/>
+  <%= f.radio_button :cleanliness_rating, 1 %> 1 
+  <%= f.radio_button :cleanliness_rating, 2 %> 2 
+  <%= f.radio_button :cleanliness_rating, 3 %> 3 
+  <%= f.radio_button :cleanliness_rating, 4 %> 4 
+  <%= f.radio_button :cleanliness_rating, 5 %> 5  <br/>
+
+
+  <br/>
+  <label> Food Rating </label> <br/>
+  <%= f.radio_button :food_rating, 1 %> 1 
+  <%= f.radio_button :food_rating, 2 %> 2 
+  <%= f.radio_button :food_rating, 3 %> 3 
+  <%= f.radio_button :food_rating, 4 %> 4 
+  <%= f.radio_button :food_rating, 5 %> 5  <br/>
+  <%= f.submit "Update" %>
+<% end %>

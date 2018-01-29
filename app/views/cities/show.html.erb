@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @city.name %>
+</p>
+
+<h2>Listing Rooms</h2>
+<% @city.rooms.each do |room| %>
+<% if room.is_authorized? %>
+ <li><%= room.name %></li>
+ <% end %>
+ <% end %>
+
+<%= link_to 'Edit', edit_city_path(@city) %> |
+<%= link_to 'Back', cities_path %>

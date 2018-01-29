@@ -1,0 +1,29 @@
+<p>Hello <%= @room.user.username %>, <br/>
+Your Room Confirmation has been processed <br/></p>
+<h2>Room Details</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>Address</th>
+      <th>Rules</th>
+      <th>Images</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <tr>
+        <td><%= @room.name %></td>
+        <td><%= @room.description %></td>
+        <td><%= @room.price %></td>
+        <td><%= @room.address %></td>
+        <td><%= @room.rules %></td>
+        <td><%= image_tag(@room.image_url, size: "700x300") %></td>
+        </td>
+      </tr>
+  </tbody>
+</table>
+<p> Thank you for adding your room here</p>

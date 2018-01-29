@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @booking.start_date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @booking.end_date %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @booking.price %>
+</p>
+
+<p>
+  <strong>Host:</strong>
+  <%= @booking.room.user.username %>
+</p>
+
+<p>
+  <strong>Room:</strong>
+  <%= @booking.room.name %>
+</p>
+
+<p>
+  <strong>Is confirmed:</strong>
+  <%= @booking.is_confirmed %>
+</p>
+<% if (user_signed_in?) && (can? :update, @booking) %>
+  <%= link_to 'Edit', edit_booking_path(@booking) %> |
+<% end %>
+<%= link_to 'Back', bookings_path %>

@@ -1,0 +1,11 @@
+<h2> <%= @review.room.name %></h2>
+Your updated review : <%= @review.body %> <br/>
+Your updated rating : Food Rating-<%= @review.food_rating%>, Cleanliness Rating-<%= @review.cleanliness_rating%>,Safety Rating-<%= @review.safety_rating%>, Facility Rating-<%= @review.facility_rating%>, Locality Rating-<%= @review.locality_rating %>
+
+<h4>Other reviews for this room</h4>
+<% @room.reviews.each do |review|  %>
+		<% if review.id == @review.id %>
+		<% else %>
+		<ol>
+			<li><%= review.body %></li><% end %></ol>
+<% end %>

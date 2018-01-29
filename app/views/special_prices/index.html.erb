@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Special Prices</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Room</th>
+      <th>Price</th>
+      <th>Start date</th>
+      <th>End date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @special_prices.each do |special_price| %>
+    <% if @special_price.room.user_id == current_user.id %>
+      <tr>
+        <td><%= index + 1 %></td>
+        <td><%= special_price.room.name %></td>
+        <td><%= special_price.price %></td>
+        <td><%= special_price.start_date %></td>
+        <td><%= special_price.end_date %></td>
+        <td><%= link_to 'Show', special_price %></td>
+        <td><%= link_to 'Edit', edit_special_price_path(special_price) %></td>
+        <td><%= link_to 'Destroy', special_price, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Special Price', new_special_price_path %>

@@ -1,0 +1,23 @@
+<h3>My Rooms</h3>
+<table>
+	<thead>
+		<tr>
+			<th>#</th>
+			<th>Room Name</th>
+			<th>Authorization</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @rooms.each_with_index do |room, index|%>
+		<tr>
+			<td><%= index+1 %></td>
+			<td><%= link_to room.name, room_path(room.id) %></td>
+			<td><% if room.is_authorized? %>
+				<p>Authorized</p>
+				<%else%>
+				<p>Unauthorized</p>
+				<%end%></td>
+		</tr>
+		<%end%>
+	</tbody>
+</table>

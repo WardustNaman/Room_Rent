@@ -1,0 +1,30 @@
+<% if @rooms.empty? %>
+<p>No unauthorized rooms found</p>
+<%else%>
+<h3>Listing unauthorized rooms</h3>
+<table>
+	<thead>
+		<tr>
+			<th>#</th>
+			<th>Room Name</th>
+			<th>Owner</th>
+			<th>Is Authorized</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @rooms.each_with_index do|room, index| %>
+		<tr>
+			<td><%= index + 1 %></td>
+			<td><%= link_to room.name, room %></td>
+			<td><%= room.user.username %></td>
+			<td>
+				<%= form_for room do |f| %>
+				<%= f.hidden_field :is_authorized, value: true %>
+				<%= f.submit "Authorize"%>
+				<% end %>
+			</td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+<% end %>

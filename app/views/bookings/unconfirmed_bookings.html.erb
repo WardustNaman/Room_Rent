@@ -1,0 +1,36 @@
+<table>
+	<thead>
+		<tr>
+			<th>#</th>
+			<th>Room </th>
+			<th>Username</th>
+			<th>Start Date</th>
+			<th>End Date</th>
+			<th>Is Confirmed</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% if @bookings.empty? %>
+		<p>No unconfirmed bookings found</p>
+		<% else %>
+		<% @bookings.each_with_index do|booking, index| %>
+		<% if current_user.id == booking.room.user_id %>
+		<tr>
+			<td><%= index + 1 %></td>
+			<td><%= booking.room.name%></td>
+			<td><%= booking.user.username %></td>
+			<td><%= booking.start_date%></td>
+			<td><%= booking.end_date%></td>
+			<td>
+				<%= form_for booking do |f| %>
+					<%=f.hidden_field :is_confirmed, value: true %>
+					<%= f.submit "Confirm",class:"btn btn-default pull-left" %>
+					<% end %>
+					<%= button_to "Cancel", bookings_cancel_booking_path(booking), method: :delete, data: {confirm: "Are you sure"} %>
+			</td>
+		</tr>
+		<% end %>
+		<%end%>
+		<%end%>
+	</tbody>
+</table>
